@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login 369 Streaming </title>
+	<link rel="stylesheet" href="stylelogin.css">
+	<style>
+		body{
+		background: rgb(41, 43, 44);
+		width: 100%;
+		}
+	  </style>
+</head>
+<body>
+	<div class="login-form">
+		<img src="logonegro369streaming.png" alt="" style="width: 320px;">
+		<p style="color: aliceblue;">Diseñado por Mgter. Mauro Rodrígez para Canal 7 "SOMOS" de la señal de FLOW</p>
+	
+		<form action="auth" method="POST">
+			<input type="text" name="user" placeholder="Usuario" autofocus required>
+			<input type="password" name="pass" placeholder="Contraseña" required>
+			<input type="submit" class="btn-login" value="Ingresar">
+		</form>
+		
+		
+		
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+   <% if (typeof alert != "undefined")  { %>
+    <script>
+    Swal.fire({
+      title:'<%= alertTitle %>',
+      text:'<%= alertMessage %>',
+      icon:'<%= alertIcon %>'
+    
+    }).then(()=>{
+	  let ruta= "/"	
+      window.location='/<%= ruta %>'
+    })
+    </script>
+  <% } %>
+	</div>
+</body>
+</html>

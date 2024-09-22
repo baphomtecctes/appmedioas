@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleregister.css">
+    <title>Registrar</title>
+</head>
+<body>
+  <% if (login) { %>        
+    <div class="register-form">
+		<h1>Registrar Usuarios</h1>
+		<form action="/register" method="POST">
+            <label for="user">User</label>
+                <input type="text" name="user" required tabindex="1" autofocus>            
+            <label for="user">Full Name</label>
+                <input type="text" name="name" required tabindex="2">
+            
+            <label for="rol">Medio</label>                          
+            <select id="rol" name="rol" class="select-css" tabindex="3">
+                <option value="Medio 1" selected>Medio 1</option>
+                <option value="Medio 2">Medio 2</option>
+                <option value="Medio 3">Medio 3</option>  
+                <option value="Medio 4">Medio 4</option>  
+                <option value="Medio 5">Medio 5</option>  
+                <option value="Medio 6">Medio 6</option> 
+                <option value="Medio 7">Medio 7</option>                      
+            </select>
+            <select id="funcion" name="funcion" class="select-css" tabindex="3">
+              <option value="Central" selected>Central</option>
+              <option value="Movil">Movil</option>
+              <option value="Mochila">Mochila</option>  
+              <option value="Enlace">Enlace</option>
+            </select>
+            <select id="dispositivo" name="dispositivo" class="select-css" tabindex="3">
+              <option value="Ninguno" selected>Ninguno</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+             <br> 
+            <label for="pass">Password</label>
+			    <input type="password" name="pass" required tabindex="4">
+            <div style="display: inline;">             
+            <a href="/" class="btn-cancel">Cancel</a><input type="submit" class="btn-save" value="Save">           
+            </div>
+		</form>		
+	</div>
+ 
+    		
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<% if (typeof alert != "undefined")  { %>
+ <script>
+ Swal.fire({
+   title:'<%= alertTitle %>',
+   text:'<%= alertMessage %>',
+   icon:'<%= alertIcon %>',
+   
+ }).then(()=>{
+   window.location='/<%= ruta %>'
+ })
+ </script>
+<% } %>
+ </div>
+ <%} else { %>
+  <h3><strong><%= name %></strong></h3>   
+  <a href="login" class="a-login">Ir a Login</a>
+<% } %>
+</body>
+</html>

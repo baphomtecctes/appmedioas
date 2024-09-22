@@ -1,0 +1,48 @@
+.videoremoto{
+    width:720px;
+    height: 360px;
+    object-fit: cover;
+    border: solid 2px white;
+  }
+  .previo{
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .imagen{
+    position: absolute;
+    margin: 0rem .001rem;
+  }
+.boton{
+  width: 30%;
+  position: absolute;
+  margin:22rem .001rem;
+}
+  .videochat{
+    width: 718px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.5); /* Cambia el valor de alfa (0.5) según tu preferencia */
+    object-fit: cover;
+    border: solid 1px white;
+    text-transform: uppercase;
+  
+    position: absolute;
+   
+    margin:15rem .001rem;
+  }
+
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Proporción 16:9 (dividir la altura por el ancho y multiplicar por 100) */
+    overflow: hidden;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  

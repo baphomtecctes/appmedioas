@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Sistema de Streaming para Moviles en Vivo</title>
+    <script src="https://cdn.jsdelivr.net/npm/peerjs/dist/peerjs.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container ">
+     <div class="row justify-content-center top">
+ 
+               <br>
+
+           <div class="videoair">
+           
+              <video id="videoaire"   class="videoair2 "   ></video> 
+              
+           </div>
+           <div class="col-auto videocostado justify-content-center">
+            <div>
+             <img src="logonegro369streaming.png" width="120px" alt="">
+             <p style="color:white;">Sistema de Streaming</p>
+            
+             <table>
+              <tr>
+                  <td><p style="color:red;">Vivo</p></td>
+                  <td> <input type="text" class="form-control  urlprevio" id="localprevio" readonly></td>
+              </tr>
+              <tr>
+                <td><p style="color:red;">Enlace</p></td>
+                <td> <input type="text" class="form-control  urlprevio" id="inputLocalEnlace" readonly style="display: none;"></td>
+                <td>      <button id="btn-callenlace" class="btn btn-success btn-sm "  style="display:none;" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-outbound" viewBox="0 0 16 16">
+                  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+                </button> </td>
+            </tr>
+             </table>
+             
+          
+            </div>
+           <div>
+            <div class="col-auto ">
+              <h4 style="color:red;">Video en Vivo</h4>
+              <video id="local-video" class="videotam" autoplay ></video>
+              <br>
+              <button id="muteBtn"  class="btn btn-danger btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+              <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+              <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
+              </svg></button>    
+           </div>
+           <button id="botonaire" class="btn btn-primary btn-sm" style="width:30px " onclick="cambiarvideovivo()" >Lo</button>
+           <button id="botonaire1" class="btn btn-primary btn-sm" style="width:30px;display:none " onclick="cambiarvideo()" >V1</button>
+           <button id="botonaire2" class="btn btn-primary btn-sm" style="width:30px;display:none" onclick="cambiarvideo2()">V2</button>
+           <button id="botonaire3" class="btn btn-primary btn-sm" style="width:30px;display:none" onclick="cambiarvideo3()">V3</button>
+           <button id="botonaire4" class="btn btn-primary btn-sm" style="width:30px;display:none" onclick="cambiarvideo4()">V4</button>   
+           </div>
+      </div>
+     </div>
+     <div class="row justify-content-center" id="selector">
+        <div class="col-auto">
+            
+        </div>
+        <div class="col-auto ">
+        <table>
+            <tr>
+                <td>
+                    <p style="color:white">Audio</p>  
+                </td>
+                <td>
+                     <select id="audio-source" class="form-control formulario"></select>
+                </td>
+            </tr>
+        </table>
+        </div> 
+        <div class="col-auto">
+        <table>
+            <tr>
+                <td>
+                     <p style="color:white">Video</p>
+                </td>
+                <td>
+                     <select id="video-source" class="form-control formulario"></select>    
+                </td>
+            </tr>
+        </table>
+       
+    
+        </div>
+        <div class="col-auto">
+          <button id="start-call" class="btn btn-primary formulario">Iniciar Modo de Espera</button>   
+        </div>
+       
+        
+
+     </div> 
+     <div class="row justify-content-center" id="seccionvideo" style="display:none">
+
+
+<!-- Comienzo de video previo movil 1-->
+        <div class="col-auto videoprevio">
+        
+          <input type="text" class=" form-control url" id="remotePeerId" style="display: none;" readonly>
+           <video id="remoteVideo" class="videotam" autoplay></video>
+          <br> 
+        <button id="muteBtnA1"  class="btn btn-danger btn-sm" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+        <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+        <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
+        </svg></button> 
+        <button id="btn-call" class="btn btn-success btn-sm "  style="display:none;" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-outbound" viewBox="0 0 16 16">
+            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </button>  
+        </div>
+
+<!-- Final del Movil 1 -->
+<!-- Comienzo de video previo movil 2-->
+        <div class="col-auto videoprevio">
+          <input type="text" class=" form-control url" id="remotePeerId2" style="display: none;" readonly>
+          <video id="remoteVideo2" class="videotam" autoplay></video>
+          <br> 
+          <button id="muteBtnA2"  class="btn btn-danger btn-sm" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+          <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+          <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
+          </svg></button> 
+          <button id="btn-call2" class="btn btn-success btn-sm "  style="display:none;" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-outbound" viewBox="0 0 16 16">
+            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+          </button>  
+        </div>
+<!-- Final del Movil 2 -->
+<!-- Comienzo de video previo movil 3-->
+        <div class="col-auto videoprevio">
+          <input type="text" class=" form-control url" id="remotePeerId3" style="display: none;" readonly>
+          <video id="remoteVideo3" class="videotam" autoplay></video>
+          <br> 
+        <button id="muteBtnA3"  class="btn btn-danger btn-sm" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+        <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+        <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
+        </svg></button> 
+        <button id="btn-call3" class="btn btn-success btn-sm "  style="display:none;" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-outbound" viewBox="0 0 16 16">
+          <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+        </button> 
+        </div>
+<!-- Final del Movil 3 -->
+<!-- Comienzo de video previo movil 4-->
+        <div class="col-auto videoprevio">
+          <input type="text" class=" form-control url" id="remotePeerId4" style="display: none;" readonly>
+          <video id="remoteVideo4" class="videotam" autoplay></video>
+          <br> 
+        <button id="muteBtnA4"  class="btn btn-danger btn-sm" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+        <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+        <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
+        </svg></button> 
+        <button id="btn-call4" class="btn btn-success btn-sm "  style="display:none;" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-outbound" viewBox="0 0 16 16">
+          <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+        </button> 
+        </div>
+  <!-- Final del Movil 4 -->
+
+       
+
+          
+     </div>
+     <div class="justify-content-center" id="chat">
+      <ul class="chateo" id="messages" style="color: aliceblue;">Canal de Chat</ul>
+      <form id="chat-form">
+          <input id="message-input" class="form-control chateo" placeholder="ingrese texto para chat" autocomplete="off" maxlength="50" style="width: 300px;"/>
+          <button style="display: none;">Enviar</button>
+      </form>
+      <ul id="messages2" style="color: aliceblue;"></ul>
+  </div>
+  <div>
+    <video id="previoenlace" class="videotam" autoplay></video>
+   
+  </div>
+    </div>
+     
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+     <script src="/socket.io/socket.io.js"></script>
+     <script type="text/javascript" src="definisiones.js"></script>
+     <script type="text/javascript" src="botonllamar.js"></script>
+    
+     <script type="text/javascript" src="control.js"></script>
+     <script>
+
+     </script>
+    </body>
+</html>
