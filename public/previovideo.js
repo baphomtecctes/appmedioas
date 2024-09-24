@@ -1,5 +1,14 @@
 const btnCall = document.getElementById("btn-call");
-var peer = new Peer();
+
+
+const peer = new Peer(null, {
+  config: {
+      iceServers: [
+          { url: 'stun:stun.l.google.com:19302' }, // Servidor STUN público de Google
+      ]
+  },
+  debug: 2 // Nivel de debug para ver lo que está pasando en la consola
+});
 const inputRemotePeerId = document.getElementById("remotePeerId");
 const localVideo = document.getElementById('localVideo');
 const socket = io();

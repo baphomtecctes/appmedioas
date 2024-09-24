@@ -121,10 +121,8 @@ navigator.mediaDevices.enumerateDevices()
                         echoCancellation: true,
                         sampleRate: { ideal: 48000 }
              },
-                video: {deviceId: selectedVideoSource,
-                        width: 1280, 
-                        height: 720, 
-                        frameRate: { max: 30 }
+                video: {deviceId: selectedVideoSource
+                       
             }
             };
 

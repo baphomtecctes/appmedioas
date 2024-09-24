@@ -34,11 +34,40 @@ let audio1;
 let audio2;
 let audio3;
 let audio4;
-var peer = new Peer();
-var peerllama = new Peer();
+
+const peer = new Peer(null, {
+    config: {
+        iceServers: [
+            { url: 'stun:stun.l.google.com:19302' }, // Servidor STUN público de Google
+        ]
+    },
+    debug: 2 // Nivel de debug para ver lo que está pasando en la consola
+});
+var peerllama =new Peer(null, {
+    config: {
+        iceServers: [
+            { url: 'stun:stun.l.google.com:19302' }, // Servidor STUN público de Google
+        ]
+    },
+    debug: 2 // Nivel de debug para ver lo que está pasando en la consola
+});
 //var peer2 = new Peer();
 //var peer3 = new Peer();
 //var peer4 = new Peer();
-var peerprevio = new Peer();
-var peerenlace = new Peer();
+var peerprevio = new Peer(null, {
+    config: {
+        iceServers: [
+            { url: 'stun:stun.l.google.com:19302' }, // Servidor STUN público de Google
+        ]
+    },
+    debug: 2 // Nivel de debug para ver lo que está pasando en la consola
+});
+var peerenlace = new Peer(null, {
+    config: {
+        iceServers: [
+            { url: 'stun:stun.l.google.com:19302' }, // Servidor STUN público de Google
+        ]
+    },
+    debug: 2 // Nivel de debug para ver lo que está pasando en la consola
+});
 ///////

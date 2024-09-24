@@ -43,7 +43,15 @@ const socket = io();
 const idpeer=socket.id;
 const movilnro='Enlace';
 const numeroallamar= movilnro+ randomString;
-const peer = new Peer(numeroallamar);
+
+const peer = new Peer(numeroallamar, {
+    config: {
+        iceServers: [
+            { url: 'stun:stun.l.google.com:19302' }, // Servidor STUN público de Google
+        ]
+    },
+    debug: 2 // Nivel de debug para ver lo que está pasando en la consola
+});
 
 const clave=peer.id;
 
@@ -123,10 +131,7 @@ navigator.mediaDevices.enumerateDevices()
                         echoCancellation: true,
                         sampleRate: { ideal: 48000 }
              },
-                video: {deviceId: selectedVideoSource,
-                        width: 1280, 
-                        height: 720, 
-                        frameRate: { max: 30 }
+                video: {deviceId: selectedVideoSource
             }
             };
 
